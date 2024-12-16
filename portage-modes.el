@@ -85,10 +85,12 @@
   (font-lock-add-keywords nil portage-common-font-lock-keywords))
 
 ;;; Major mode active files
-(add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-env-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords.*" . portage-keyword-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-env-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.license" . portage-license-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.use.*" . portage-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.force.*" . portage-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.mask.*" . portage-use-mode))
 
 (provide 'portage-modes)
 
