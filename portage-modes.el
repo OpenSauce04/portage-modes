@@ -66,23 +66,23 @@
 ;;; Major mode definitions
 ;;;###autoload
 (define-derived-mode portage-env-mode prog-mode
-  (font-lock-add-keywords nil portage-common-font-lock-keywords)
-  (font-lock-add-keywords nil portage-env-mode-font-lock-keywords))
+  (font-lock-add-keywords nil portage-env-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-keyword-mode prog-mode
-  (font-lock-add-keywords nil portage-common-font-lock-keywords)
-  (font-lock-add-keywords nil portage-keyword-mode-font-lock-keywords))
+  (font-lock-add-keywords nil portage-keyword-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-license-mode prog-mode
-  (font-lock-add-keywords nil portage-common-font-lock-keywords)
-  (font-lock-add-keywords nil portage-license-mode-font-lock-keywords))
+  (font-lock-add-keywords nil portage-license-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-use-mode prog-mode
-  (font-lock-add-keywords nil portage-common-font-lock-keywords)
-  (font-lock-add-keywords nil portage-use-mode-font-lock-keywords))
+  (font-lock-add-keywords nil portage-use-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-common-font-lock-keywords))
 
 ;;; Major mode active files
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-env-mode))
