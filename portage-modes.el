@@ -1,5 +1,20 @@
 ;;; portage-modes.el --- Major modes for editing Portage config files -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2024 OpenSauce
+
+;; Author: OpenSauce <opensauce04@gmail.com>
+;; URL: https://github.com/OpenSauce04/portage-modes
+;; Version: 0.0
+;; SPDX-License-Identifier: GPL-3.0-or-later
+
+;;; Commentary:
+
+;; Adds several major modes which provides syntax highlighting for viewing and editing configuration files for Portage, Gentoo Linux's package manager.
+;; When opening a file in `/etc/portage/`, the relevant mode is automatically enabled depending on which file is being viewed.
+;; Highlighting rules and colors vary by mode depending on the expected content of the given file.
+
+;;; Code:
+
 ;;; Custom face definitions
 (defface portage-green-face '((t :foreground "green"))
   "Red face for portage-modes")
