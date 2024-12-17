@@ -84,6 +84,10 @@
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
+(define-derived-mode portage-modes-generic-mode prog-mode
+  (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
+
+;;;###autoload
 (define-derived-mode portage-modes-keyword-mode prog-mode
   (font-lock-add-keywords nil portage-modes-keyword-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
@@ -102,7 +106,10 @@
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords.*" . portage-modes-keyword-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-modes-env-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.license" . portage-modes-license-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.mask.*" . portage-modes-generic-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.unmask.*" . portage-modes-generic-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/package.use.*" . portage-modes-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.provided" . portage-modes-generic-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.force.*" . portage-modes-use-mode))
 (add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.mask.*" . portage-modes-use-mode))
 
