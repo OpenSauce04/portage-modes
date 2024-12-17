@@ -17,9 +17,9 @@
 
 ;;; Custom face definitions
 (defface portage-modes-green-face '((t :foreground "green"))
-  "Face used by portage-modes to highlight text in green")
+  "Face used by portage-modes to highlight text in green.")
 (defface portage-modes-red-face '((t :foreground "red"))
-  "Face used by portage-modes to highlight text in red")
+  "Face used by portage-modes to highlight text in red.")
 
 ;;; Font lock keyword definitions
 (defvar portage-modes-common-font-lock-keywords
@@ -38,7 +38,7 @@
           (1+ nonl)))
       (1 'font-lock-function-call-face))))
 
-(setq portage-keywords-expression `(or 
+(setq portage-keywords-expression `(or
                        "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
                        "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris"))
 (defvar portage-modes-keyword-mode-font-lock-keywords
