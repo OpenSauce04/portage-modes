@@ -1,4 +1,4 @@
-;;; portage-modes.el --- Major modes for editing Portage config files -*- lexical-binding: t; -*-
+;;; portage-modes.el --- Major modes for editing Portage config files
 
 ;; Copyright (C) 2024 OpenSauce
 
@@ -16,13 +16,13 @@
 ;;; Code:
 
 ;;; Custom face definitions
-(defface portage-green-face '((t :foreground "green"))
-  "Red face for portage-modes")
-(defface portage-red-face '((t :foreground "red"))
-  "Green face for portage-modes")
+(defface portage-modes-green-face '((t :foreground "green"))
+  "Face used by portage-modes to highlight text in green")
+(defface portage-modes-red-face '((t :foreground "red"))
+  "Face used by portage-modes to highlight text in red")
 
 ;;; Font lock keyword definitions
-(defvar portage-common-font-lock-keywords
+(defvar portage-modes-common-font-lock-keywords
   ;; package.env keyword highlighting
   `(( ,(rx
         (group-n 1 "#")
@@ -30,7 +30,7 @@
       (1 'font-lock-comment-delimiter-face)
       (2 'font-lock-comment-face))))
 
-(defvar portage-env-mode-font-lock-keywords
+(defvar portage-modes-env-mode-font-lock-keywords
   ;; package.env keyword highlighting
   `(( ,(rx
         (group-n 1
@@ -41,22 +41,22 @@
 (setq portage-keywords-expression `(or 
                        "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
                        "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris"))
-(defvar portage-keyword-mode-font-lock-keywords
+(defvar portage-modes-keyword-mode-font-lock-keywords
   ;; package.accept_keywords keyword highlighting
   `(( ,(rx
         (group-n 1
           " "
           (zero-or-one "~")
           (eval portage-keywords-expression)))
-      (1 'portage-green-face))
+      (1 'portage-modes-green-face))
     ( ,(rx
         (group-n 1
           " -"
           (zero-or-one "~")
           (eval portage-keywords-expression)))
-      (1 'portage-red-face))))
+      (1 'portage-modes-red-face))))
 
-(defvar portage-license-mode-font-lock-keywords
+(defvar portage-modes-license-mode-font-lock-keywords
   ;; package.env keyword highlighting
   `(( ,(rx
         (group-n 1
@@ -64,47 +64,47 @@
           (1+ nonl)))
       (1 'font-lock-keyword-face))))
 
-(defvar portage-use-mode-font-lock-keywords
+(defvar portage-modes-use-mode-font-lock-keywords
   ;; package.use keyword highlighting
   `(( ,(rx
         (group-n 1
           " -"
           (1+ (not whitespace))))
-      (1 'portage-red-face))
+      (1 'portage-modes-red-face))
     ( ,(rx
         (group-n 1
           " "
           (1+ (not whitespace))))
-      (1 'portage-green-face))))
+      (1 'portage-modes-green-face))))
 
 ;;; Major mode definitions
 ;;;###autoload
-(define-derived-mode portage-env-mode prog-mode
-  (font-lock-add-keywords nil portage-env-mode-font-lock-keywords)
-  (font-lock-add-keywords nil portage-common-font-lock-keywords))
+(define-derived-mode portage-modes-env-mode prog-mode
+  (font-lock-add-keywords nil portage-modes-env-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
-(define-derived-mode portage-keyword-mode prog-mode
-  (font-lock-add-keywords nil portage-keyword-mode-font-lock-keywords)
-  (font-lock-add-keywords nil portage-common-font-lock-keywords))
+(define-derived-mode portage-modes-keyword-mode prog-mode
+  (font-lock-add-keywords nil portage-modes-keyword-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
-(define-derived-mode portage-license-mode prog-mode
-  (font-lock-add-keywords nil portage-license-mode-font-lock-keywords)
-  (font-lock-add-keywords nil portage-common-font-lock-keywords))
+(define-derived-mode portage-modes-license-mode prog-mode
+  (font-lock-add-keywords nil portage-modes-license-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
-(define-derived-mode portage-use-mode prog-mode
-  (font-lock-add-keywords nil portage-use-mode-font-lock-keywords)
-  (font-lock-add-keywords nil portage-common-font-lock-keywords))
+(define-derived-mode portage-modes-use-mode prog-mode
+  (font-lock-add-keywords nil portage-modes-use-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;; Major mode active files
-(add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords.*" . portage-keyword-mode))
-(add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-env-mode))
-(add-to-list 'auto-mode-alist '("^/etc/portage/package.license" . portage-license-mode))
-(add-to-list 'auto-mode-alist '("^/etc/portage/package.use.*" . portage-use-mode))
-(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.force.*" . portage-use-mode))
-(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.mask.*" . portage-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords.*" . portage-modes-keyword-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.env" . portage-modes-env-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.license" . portage-modes-license-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/package.use.*" . portage-modes-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.force.*" . portage-modes-use-mode))
+(add-to-list 'auto-mode-alist '("^/etc/portage/profile/package.use.mask.*" . portage-modes-use-mode))
 
 (provide 'portage-modes)
 
