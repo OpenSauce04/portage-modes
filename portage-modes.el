@@ -38,23 +38,22 @@
           (1+ nonl)))
       (1 'font-lock-function-call-face))))
 
+(setq portage-keywords-expression `(or 
+                       "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
+                       "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris"))
 (defvar portage-keyword-mode-font-lock-keywords
   ;; package.accept_keywords keyword highlighting
   `(( ,(rx
         (group-n 1
           " "
           (zero-or-one "~")
-          (or
-           "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
-           "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris")))
+          (eval portage-keywords-expression)))
       (1 'portage-green-face))
     ( ,(rx
         (group-n 1
           " -"
           (zero-or-one "~")
-          (or ; TODO: Dedupliate these strings
-           "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
-           "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris")))
+          (eval portage-keywords-expression)))
       (1 'portage-red-face))))
 
 (defvar portage-license-mode-font-lock-keywords
