@@ -23,9 +23,9 @@
 ;;; Code:
 
 ;;; Custom face definitions
-(defface portage-modes-positive-face '((t :foreground "green"))
+(defface portage-modes-positive-face '((t :inherit 'success :weight normal))
   "Face used by portage-modes to indicate that something is being added.")
-(defface portage-modes-negative-face '((t :foreground "red"))
+(defface portage-modes-negative-face '((t :inherit 'error :weight normal))
   "Face used by portage-modes to highlight that something is being removed.")
 
 ;;; Font lock keyword definitions
