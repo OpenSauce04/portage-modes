@@ -23,10 +23,10 @@
 ;;; Code:
 
 ;;; Custom face definitions
-(defface portage-modes-green-face '((t :foreground "green"))
-  "Face used by portage-modes to highlight text in green.")
-(defface portage-modes-red-face '((t :foreground "red"))
-  "Face used by portage-modes to highlight text in red.")
+(defface portage-modes-positive-face '((t :foreground "green"))
+  "Face used by portage-modes to indicate that something is being added.")
+(defface portage-modes-negative-face '((t :foreground "red"))
+  "Face used by portage-modes to highlight that something is being removed.")
 
 ;;; Font lock keyword definitions
 (defvar portage-modes-common-font-lock-keywords
@@ -55,13 +55,13 @@
           " "
           (zero-or-one "~")
           (or (regex portage-modes-keywords-expression))))
-      (1 'portage-modes-green-face))
+      (1 'portage-modes-positive-face))
     ( ,(rx
         (group-n 1
           " -"
           (zero-or-one "~")
           (or (literal portage-modes-keywords-expression))))
-      (1 'portage-modes-red-face))))
+      (1 'portage-modes-negative-face))))
 
 (defvar portage-modes-license-mode-font-lock-keywords
   ;; package.env keyword highlighting
@@ -77,12 +77,12 @@
         (group-n 1
           " -"
           (1+ (not whitespace))))
-      (1 'portage-modes-red-face))
+      (1 'portage-modes-negative-face))
     ( ,(rx
         (group-n 1
           " "
           (1+ (not whitespace))))
-      (1 'portage-modes-green-face))))
+      (1 'portage-modes-positive-face))))
 
 ;;; Major mode definitions
 ;;;###autoload
