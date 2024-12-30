@@ -7,9 +7,3 @@
 Adds several major modes which provide syntax highlighting when viewing or editing configuration files for Portage, the Gentoo Linux package manager.
 
 When opening a file in `/etc/portage/`, the relevant mode is automatically enabled depending on which file is being viewed.
-
-## Usage
-Install the package via your preferred method and add the following to your .emacs:
-```elisp
-(require 'portage-modes)
-```
