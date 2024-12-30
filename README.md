@@ -1,3 +1,4 @@
+[![MELPA](https://melpa.org/packages/portage-modes-badge.svg)](https://melpa.org/#/portage-modes) [![MELPA Stable](https://stable.melpa.org/packages/portage-modes-badge.svg)](https://stable.melpa.org/#/portage-modes)
 # portage-modes
 ### Major modes for editing Portage config files
 
