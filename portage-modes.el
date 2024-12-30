@@ -4,7 +4,7 @@
 
 ;; Author: OpenSauce <opensauce04@gmail.com>
 ;; URL: https://github.com/OpenSauce04/portage-modes
-;; Version: 0.1
+;; Version: 0.2
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
