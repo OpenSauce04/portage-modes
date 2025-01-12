@@ -33,7 +33,7 @@
   ;; package.env keyword highlighting
   `(( ,(rx
         (group-n 1 "#")
-        (group-n 2 (0+ nonl)))
+        (group-n 2 (0+ not-newline)))
       (1 'font-lock-comment-delimiter-face)
       (2 'font-lock-comment-face))))
 
@@ -42,7 +42,7 @@
   `(( ,(rx
         (group-n 1
           " "
-          (1+ nonl)))
+          (1+ not-newline)))
       (1 'font-lock-function-call-face))))
 
 (defvar portage-modes-keywords-expression (rx(or
@@ -70,7 +70,7 @@
   `(( ,(rx
         (group-n 1
           " "
-          (1+ nonl)))
+          (1+ not-newline)))
       (1 'font-lock-keyword-face))))
 
 (defvar portage-modes-use-mode-font-lock-keywords
