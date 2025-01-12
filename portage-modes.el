@@ -46,7 +46,7 @@
       (1 'font-lock-function-call-face))))
 
 (defvar portage-modes-keywords-expression (rx(or
-                                              "*" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
+                                              "*" "**" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
                                               "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris")))
 (defvar portage-modes-keyword-mode-font-lock-keywords
   ;; package.accept_keywords keyword highlighting
