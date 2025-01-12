@@ -54,13 +54,15 @@
         (group-n 1
           " "
           (zero-or-one "~")
-          (or (regex portage-modes-keywords-expression))))
+          (or (regex portage-modes-keywords-expression))
+          word-end))
       (1 'portage-modes-positive-face))
     ( ,(rx
         (group-n 1
           " -"
           (zero-or-one "~")
-          (or (literal portage-modes-keywords-expression))))
+          (or (literal portage-modes-keywords-expression))
+          word-end))
       (1 'portage-modes-negative-face))))
 
 (defvar portage-modes-license-mode-font-lock-keywords
