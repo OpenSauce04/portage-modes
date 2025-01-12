@@ -61,7 +61,7 @@
         (group-n 1
           " -"
           (zero-or-one "~")
-          (or (literal portage-modes-keywords-expression))
+          (or (regex portage-modes-keywords-expression))
           symbol-end))
       (1 'portage-modes-negative-face))))
 
