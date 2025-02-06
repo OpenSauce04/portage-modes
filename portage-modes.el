@@ -48,7 +48,7 @@
 (defvar portage-modes-keywords-expression (rx(or
                                               "*" "**" "alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips" "ppc" "ppc64" "riscv" "s390" "sparc" "x86"
                                               "amd64-linux" "arm-linux" "arm64-linux" "ppc64-linux" "riscv-linux" "x86-linux" "arm64-macos" "ppc-macos" "x86-macos" "x64-macos" "x64-solaris")))
-(defvar portage-modes-keyword-mode-font-lock-keywords
+(defvar portage-modes-keywords-mode-font-lock-keywords
   ;; package.accept_keywords keyword highlighting
   `(( ,(rx
         (group-n 1
@@ -101,10 +101,10 @@
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
-(define-derived-mode portage-modes-keyword-mode prog-mode
+(define-derived-mode portage-modes-keywords-mode prog-mode
   "Portage-Keywords"
   "Major mode for editing Portage's package.accept_keywords file(s)"
-  (font-lock-add-keywords nil portage-modes-keyword-mode-font-lock-keywords)
+  (font-lock-add-keywords nil portage-modes-keywords-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
@@ -124,8 +124,8 @@
 ;;; Major mode active files
 ;;;###autoload
 (progn
-  (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords\\'" . portage-modes-keyword-mode))
-  (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords/.*\\'" . portage-modes-keyword-mode))
+  (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords\\'" . portage-modes-keywords-mode))
+  (add-to-list 'auto-mode-alist '("^/etc/portage/package.accept_keywords/.*\\'" . portage-modes-keywords-mode))
   (add-to-list 'auto-mode-alist '("^/etc/portage/package.env\\'" . portage-modes-env-mode))
   (add-to-list 'auto-mode-alist '("^/etc/portage/package.license\\'" . portage-modes-license-mode))
   (add-to-list 'auto-mode-alist '("^/etc/portage/package.mask\\'" . portage-modes-generic-mode))
