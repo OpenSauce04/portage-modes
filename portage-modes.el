@@ -89,25 +89,35 @@
 ;;; Major mode definitions
 ;;;###autoload
 (define-derived-mode portage-modes-env-mode prog-mode
+  "Portage-Env"
+  "Major mode for editing Portage's package.env file"
   (font-lock-add-keywords nil portage-modes-env-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-modes-generic-mode prog-mode
+  "Portage-Generic"
+  "Major mode for editing miscellaneous Portage files"
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-modes-keyword-mode prog-mode
+  "Portage-Keywords"
+  "Major mode for editing Portage's package.accept_keywords file(s)"
   (font-lock-add-keywords nil portage-modes-keyword-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-modes-license-mode prog-mode
+  "Portage-License"
+  "Major mode for editing Portage's package.license file"
   (font-lock-add-keywords nil portage-modes-license-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
 ;;;###autoload
 (define-derived-mode portage-modes-use-mode prog-mode
+  "Portage-Use"
+  "Major mode for editing Portage's package.use file(s)"
   (font-lock-add-keywords nil portage-modes-use-mode-font-lock-keywords)
   (font-lock-add-keywords nil portage-modes-common-font-lock-keywords))
 
